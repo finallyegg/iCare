@@ -1,0 +1,30 @@
+//
+//  MapView.swift
+//  iCare
+//
+//  Created by Carl He on 4/9/20.
+//  Copyright © 2020 Carl He. All rights reserved.
+//
+
+import SwiftUI
+import MapKit
+
+struct MapView: UIViewRepresentable {
+    func makeUIView(context: Context) -> MKMapView {
+        MKMapView(frame: .zero)
+        
+    }
+    
+    func updateUIView(_ uiView: MKMapView, context: Context) {
+        let span = MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
+        let corrdinate = CLLocationCoordinate2D(latitude: 34, longitude: -116)
+        let region = MKCoordinateRegion(center: corrdinate, span: span)
+        uiView.setRegion(region, animated: true)
+    }
+}
+
+struct MapView_Previews: PreviewProvider {
+    static var previews: some View {
+        MapView()
+    }
+}
