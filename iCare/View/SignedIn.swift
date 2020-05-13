@@ -10,18 +10,27 @@ import SwiftUI
 
 struct SignedIn: View {
     @Environment(\.presentationMode) var presentationMode
-    @State var coordinator:SignInWithAppleCoordinator?
+    @State var coordinator:Any?
     
     
     var body: some View {
         VStack{
         Text("Thanks for using iCare Please signed in")
+            signinWIthGoogleButton()
+                .frame(width:200,height:45)
+            .padding()
+                .onTapGesture {
+                    self.coordinator = SignInWithGoogleCoordinator()
+                    if let coordinator = self.coordinator{
+                        (coordinator as! SignInWithGoogleCoordinator).signInflow()
+                    }
+            }
             SignInWithAppleButton()
                 .frame(width:200,height:45)
                 .onTapGesture {
                     self.coordinator = SignInWithAppleCoordinator()
                     if let coordinator = self.coordinator{
-                        coordinator.startSignInWithAppleFlow {
+                        (coordinator as! SignInWithAppleCoordinator).startSignInWithAppleFlow {
                             print("Success")
                             self.presentationMode.wrappedValue.dismiss()
                         }

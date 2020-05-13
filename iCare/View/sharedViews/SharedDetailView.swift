@@ -23,6 +23,7 @@ struct SharedDetailView: View {
     var body: some View {
         ScrollView{
             VStack(spacing:3){
+                Text("User Name: \(sharedCase.userNickName)")
                 RHInteractiveLinePlot(
                     values: getData(sharedData: sharedCase),
                     occupyingRelativeWidth: 0.9,

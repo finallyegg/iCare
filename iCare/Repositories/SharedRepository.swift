@@ -22,6 +22,7 @@ class SharedRepository: ObservableObject{
     func loadData() {
         
         db.collection("sharedRecords")
+        .order(by: "date", descending: true)
         .addSnapshotListener{(querySnapshot,error) in
                 if let querySnapshot = querySnapshot{
                     self.sharedRecords =  querySnapshot.documents.compactMap{ document in
@@ -38,11 +39,11 @@ class SharedRepository: ObservableObject{
         }
     }
     
-    func addSharedRecord(_ records: [Record]){
+    func addSharedRecord(_ records: [Record],NickName:String){
         var shared = SharedModel()
         shared.recordList = records
         shared.userID = Auth.auth().currentUser!.uid
-        
+        shared.userNickName = NickName
         do{
             let _ = try db.collection("sharedRecords")
                 .addDocument(from: shared)

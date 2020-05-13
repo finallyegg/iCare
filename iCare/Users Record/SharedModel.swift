@@ -13,12 +13,15 @@ import FirebaseFirestoreSwift
 struct SharedModel:Codable,Identifiable {
     @DocumentID var id:String?
     var userID: String
+    var userNickName:String
     var recordList: [Record]
+    var date = Date()
     
     init() {
         id = ""
         userID = ""
         recordList = []
+        userNickName = ""
     }
     init (sharedModel:SharedModel){
         self = sharedModel

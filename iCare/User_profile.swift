@@ -33,6 +33,7 @@ enum weight_unit:String, Codable, CaseIterable,Hashable{
 }
 
 struct User_profile:Codable,Identifiable{
+
     @DocumentID var id: String? = Auth.auth().currentUser!.uid
     var nickName:String
     var records: [Record]
@@ -44,7 +45,7 @@ struct User_profile:Codable,Identifiable{
     var weight_unit:weight_unit
     
     init() {
-        nickName = ""
+        nickName = "User"
         records = []
         age = 0
         race = .Asian

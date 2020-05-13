@@ -29,12 +29,12 @@ class SharedListViewModel:ObservableObject{
         .store(in: &cancellables)
     }
     
-    func addSharedGraph(recordLVM: RecordListViewModel){
+    func addSharedGraph(recordLVM: RecordListViewModel,nickName:String){
         var records = [Record]()
         for recordCellVM in recordLVM.recordCellViewModels{
             records.append(recordCellVM.record)
         }
-        sharedRepository.addSharedRecord(records)
+        sharedRepository.addSharedRecord(records,NickName: nickName)
         
     }
     

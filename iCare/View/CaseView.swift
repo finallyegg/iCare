@@ -13,7 +13,7 @@ import SwiftUI
 struct CaseView: View {
     @EnvironmentObject var recordListVM:RecordListViewModel
     @EnvironmentObject var sharedListVM: SharedListViewModel
-    
+    @EnvironmentObject var profileRepo:ProfileRepository
     @State private var sharingOptions = false
     
     var body: some View {
@@ -62,7 +62,7 @@ struct CaseView: View {
         } .alert(isPresented: $sharingOptions, content: {
             Alert(title: Text("Sharing Record"), message: Text("Are you sure?"), primaryButton: .destructive(Text("Sharing")){
                 
-                self.sharedListVM.addSharedGraph(recordLVM: self.recordListVM)
+                self.sharedListVM.addSharedGraph(recordLVM: self.recordListVM,nickName:self.profileRepo.profile.nickName )
                 }, secondaryButton: .cancel())
         })
     }

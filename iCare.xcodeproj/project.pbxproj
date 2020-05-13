@@ -53,6 +53,8 @@
 		9C489EC32442A63100A0E0FB /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C489EC22442A63100A0E0FB /* Record.swift */; };
 		9C75A5B024460051008DF75A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75A5AF24460051008DF75A /* MainView.swift */; };
 		9C75A5B224460DE6008DF75A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75A5B124460DE6008DF75A /* SettingsView.swift */; };
+		9CB5C60A246BABA4007697F4 /* SigninWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB5C609246BABA4007697F4 /* SigninWithGoogleButton.swift */; };
+		9CB5C60C246BC261007697F4 /* SignInWithGoogleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB5C60B246BC261007697F4 /* SignInWithGoogleCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +107,8 @@
 		9C489EC22442A63100A0E0FB /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		9C75A5AF24460051008DF75A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		9C75A5B124460DE6008DF75A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9CB5C609246BABA4007697F4 /* SigninWithGoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninWithGoogleButton.swift; sourceTree = "<group>"; };
+		9CB5C60B246BC261007697F4 /* SignInWithGoogleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleCoordinator.swift; sourceTree = "<group>"; };
 		B12768E121FB80110D0D0D75 /* Pods-iCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCare.release.xcconfig"; path = "Target Support Files/Pods-iCare/Pods-iCare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +174,7 @@
 				9C1077F6245B495500DF4880 /* CaseView.swift */,
 				9C107800245D078C00DF4880 /* Editor_RecordView.swift */,
 				9C107809246274CF00DF4880 /* SignInWithAppleButton.swift */,
+				9CB5C609246BABA4007697F4 /* SigninWithGoogleButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				9C23A9BA246B990100636138 /* icon180.png */,
 				9C23A9BB246B990200636138 /* SignedInWithAppleCoordinator.swift */,
 				9C1077F9245B582500DF4880 /* Util.swift */,
+				9CB5C60B246BC261007697F4 /* SignInWithGoogleCoordinator.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 				9C489E9E243FAAC500A0E0FB /* Frameworks */,
 				9C489E9F243FAAC500A0E0FB /* Resources */,
 				2BAC0D7B109408E131E4BBAB /* [CP] Embed Pods Frameworks */,
+				0BC84B7613B6B66A4FD81C6D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -363,6 +370,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0BC84B7613B6B66A4FD81C6D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iCare/Pods-iCare-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iCare/Pods-iCare-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iCare/Pods-iCare-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2BAC0D7B109408E131E4BBAB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -413,6 +437,7 @@
 				9C389BFC2459A9BB00E4A837 /* LinePlotValueStick.swift in Sources */,
 				9C3CE600244A32F200B08646 /* GraphView.swift in Sources */,
 				9C1077F1245A208200DF4880 /* ProfileView.swift in Sources */,
+				9CB5C60A246BABA4007697F4 /* SigninWithGoogleButton.swift in Sources */,
 				9C1077FD245B8A7F00DF4880 /* RecordCellViewModel.swift in Sources */,
 				9C389BFD2459A9BB00E4A837 /* GlowingIndicator.swift in Sources */,
 				9C75A5B024460051008DF75A /* MainView.swift in Sources */,
@@ -437,6 +462,7 @@
 				9C389C022459A9BB00E4A837 /* RHLinePlot+Segmented.swift in Sources */,
 				9C23A9B8246B987E00636138 /* SignedIn.swift in Sources */,
 				9C1077FA245B582500DF4880 /* Util.swift in Sources */,
+				9CB5C60C246BC261007697F4 /* SignInWithGoogleCoordinator.swift in Sources */,
 				9C10780A246274CF00DF4880 /* SignInWithAppleButton.swift in Sources */,
 				9C489EC12442666C00A0E0FB /* DefaultPage.swift in Sources */,
 				9C23A9C0246B990200636138 /* SignedInWithAppleCoordinator.swift in Sources */,

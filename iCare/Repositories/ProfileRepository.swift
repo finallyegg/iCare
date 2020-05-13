@@ -23,11 +23,11 @@ class ProfileRepository: ObservableObject{
     func loadData() {
         let userID = Auth.auth().currentUser!.uid
         let docRef = db.collection("userProfile").document(userID)
-//        print(userID)
 
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 do{
+                    
                      let x = try document.data(as: User_profile.self)
                      self.profile = x!
                 }
@@ -42,58 +42,12 @@ class ProfileRepository: ObservableObject{
         }
     }
     
-//    func loadData() {
-//
-//        db.collection("userProfile")
-//        .addSnapshotListener{(querySnapshot,error) in
-//                if let querySnapshot = querySnapshot{
-//                    self.profile =  querySnapshot.documents.compactMap{ document in
-//                        do{
-//                            let x = try document.data(as: User_profile.self )
-//                            return x
-//                        }
-//                        catch{
-//                            print(error)
-//                        }
-//                        return nil
-//                    }
-//                }
-//        }
-//    }
-    
-    
-    //        .addSnapshotListener{(querySnapshot,error) in
-    //                if let querySnapshot = querySnapshot{
-    //                    self.sharedRecords =  querySnapshot.documents.compactMap{ document in
-    //                        do{
-    //                            let x = try document.data(as: SharedModel.self )
-    //                            return x
-    //                        }
-    //                        catch{
-    //                            print(error)
-    //                        }
-    //                        return nil
-    //                    }
-    //                }
-    //        }
-    //    }
-    
-//    func addProfile(_ profile: User_profile){
-//        
-//        do{
-//            let _ = try db.collection("userProfile")
-//                .addDocument(from: profile).documentID
-//        }
-//        catch{
-//            fatalError()
-//        }
-//    }
-    
     func updateProfile (_ profile:User_profile){
         let userID = Auth.auth().currentUser!.uid
         do{
             try db.collection("userProfile").document(userID)
                 .setData(from: profile)
+            loadData()
         }
         catch{
             fatalError("Unable to Encode Record: \(error.localizedDescription)")

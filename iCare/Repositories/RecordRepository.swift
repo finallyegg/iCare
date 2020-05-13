@@ -20,7 +20,6 @@ class RecordRepository: ObservableObject{
         loadData()
     }
     func loadData(){
-        sleep(4)
 
         let userID = Auth.auth().currentUser!.uid
         
