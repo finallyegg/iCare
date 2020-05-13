@@ -23,7 +23,8 @@ class ProfileRepository: ObservableObject{
     func loadData() {
         let userID = Auth.auth().currentUser!.uid
         let docRef = db.collection("userProfile").document(userID)
-        print(userID)
+//        print(userID)
+
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 do{

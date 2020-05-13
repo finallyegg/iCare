@@ -41,7 +41,9 @@ struct MainView: View {
                                 .imageScale(.medium)
                     },
                                     trailing:
-                    NavigationLink(destination: SettingsView()) {
+                    Button(action:{
+                        self.is_sideBar_Appear.toggle()
+                    }) {
                         Image(systemName: "wrench.fill")
                             .imageScale(.medium)
                     }
@@ -50,7 +52,9 @@ struct MainView: View {
             
             
         }
-        
+        .sheet(isPresented: self.$is_sideBar_Appear, content: {
+            SignedIn()
+        })
     }
 }
 
@@ -62,11 +66,12 @@ struct BigView: View {
     
     var body: some View{
         VStack(){
-            Text("MAIN PAGE")
+            Text("All shared cases will appear HERE")
             List{
                 ForEach(sharedListVM.sharedRecords){ sharedRecord in
                     NavigationLink(destination: SharedDetailView(sharedCase: sharedRecord)){
                         SharedPreview(sharedRecords: sharedRecord)
+                            .cornerRadius(40)
                             .border(Color.black)
                     }
                     
@@ -74,21 +79,7 @@ struct BigView: View {
                 }
             }
             Spacer()
-            NavigationLink(destination: SubmitView()) {
-                HStack(){
-                    
-                    Image(systemName: "plus")
-                    Text("New Record")
-                    
-                }
-                    
-                .padding()
-                .foregroundColor(.white)
-                .background(Color.red)
-                .cornerRadius(40)
-                
-            }
-            .padding()
+            
         }
     }
 }

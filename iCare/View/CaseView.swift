@@ -18,8 +18,11 @@ struct CaseView: View {
     
     var body: some View {
         NavigationView{
-            VStack(alignment: .leading){
+            VStack(alignment: .center){
+                if(!recordListVM.recordCellViewModels.isEmpty){
                 GraphView(values: getData(recordListVM: recordListVM))
+                }
+
                 List{
                     ForEach(recordListVM.recordCellViewModels){recordCellVM in
                         NavigationLink(destination: Editor_RecordView(recordCellVM: recordCellVM))
@@ -29,6 +32,23 @@ struct CaseView: View {
                     }
                     
                 }
+                NavigationLink(destination: SubmitView()) {
+                               HStack(){
+                                   
+                                   Image(systemName: "plus")
+                                   Text("New Record")
+                                   
+                               }
+                                   
+                               .padding()
+                               .foregroundColor(.white)
+                               .background(Color.red)
+                               .cornerRadius(40)
+                               
+                           }
+                           .padding()
+            .opacity(50)
+
             }
             .navigationBarTitle("View my record")
             .navigationBarItems(trailing:

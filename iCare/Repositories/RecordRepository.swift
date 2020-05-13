@@ -20,14 +20,14 @@ class RecordRepository: ObservableObject{
         loadData()
     }
     func loadData(){
+        sleep(4)
+
         let userID = Auth.auth().currentUser!.uid
         
         db.collection("users").document(userID)
         .collection("records")
             //sort by time
-            .order(by: "time")
-            
-//            .whereField("userID", isEqualTo: userID)
+            .order(by: "time",descending: false)
             .addSnapshotListener{(querySnapshot,error) in
                 if let querySnapshot = querySnapshot{
                     self.records =  querySnapshot.documents.compactMap{ document in
